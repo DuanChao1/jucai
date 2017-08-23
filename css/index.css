@@ -1,0 +1,54 @@
+body,ul,li,p{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+
+/*头部和导航*/
+.header{
+	height: 100px;
+	line-height: 100px;
+	background: url(../images/bg_header.jpg) 100% 100%;
+}
+.header>div{
+	width: 1200px;
+	margin: 0 auto;
+}
+.header img{
+	vertical-align: middle;
+}
+.nav{
+	height: 70px;
+	background: url(../images/bg_nav.jpg) repeat-x;
+	overflow: hidden;
+}
+.nav>div{
+	height: 37px;
+	line-height: 37px;
+	width: 1200px;
+	margin: 3px auto 0;
+}
+.nav ul{
+	overflow: hidden;
+}
+.nav li{
+	float: left;
+	width: 150px;
+	text-align: center;
+}
+.nav li.active{
+	background: url(../images/bg_active.jpg);
+	background-size: 100% 100%;
+}
+.nav li>a{
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+    font-family: '楷体';
+}
+.nav li>a:hover{
+	text-decoration: underline;
+}

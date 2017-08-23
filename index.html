@@ -5,15 +5,191 @@
 <meta name="keywords" content="北京钜彩国际拍卖公司,钜彩国际拍卖,钜彩,拍卖,北京钜彩" />
 <meta name="description" content="北京钜彩国际拍卖公司是一家公正，快捷的拍卖公司。" /> 
 <title>北京钜彩国际拍卖公司</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 <style type="text/css">
-
-</style>   
+body{
+	background: #000;
+}
+.banner_box{
+	width: 1200px;
+	margin: 0 auto;
+}
+.banner_box{
+  position: relative;
+  overflow: hidden;
+  height: 340px;
+  margin-top: 20px;
+}
+.banner_box .banner_ul li{
+  position: absolute;
+  float: left;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  display: none;
+}
+.banner_box .banner_ul li>a{
+	height: 100%;
+}
+.banner_box .banner_ul li>a>img{
+	height: 100%;
+}
+.banner_box .banner_ul li:first-child{
+  display: block;
+}
+.banner_btn{
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	bottom: 10px;
+}
+.banner_btn li{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #fff;
+	margin: 0 20px;
+	border: 1px solid #cecece;
+	cursor: pointer;
+}
+.banner_btn li.active{
+	background: #a7936e;
+}
+.banner_left,.banner_right{
+	position: absolute;
+	top: 145px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 50px;
+	background: #D0C4AF;
+	border: none;
+	color: #fff;
+	opacity: .6;
+	cursor: pointer;
+}
+.banner_left:hover,.banner_right:hover{
+	opacity: 1;
+}
+.banner_left{
+	left: 10px;
+	outline: none;
+}
+.banner_right{
+	right: 10px;
+	outline: none;
+}
+.banner_left>img,.banner_right>img{
+	width: 20px;
+	vertical-align: middle;
+}
+</style>
 </head>
 <body>
     <div class="header">
-        <div>
-            <img src="images/logo.jpg" height="100" width="200">
-        </div>
+    	<div>
+    		<img src="images/logo.png" height="62" width="435">
+    	</div>      
+    </div>
+    <div class="nav">
+    	<div>
+    		<ul>
+    			<li class="active"><a href="">网站首页</a></li>
+    			<li><a href="">公司简介</a></li>
+    			<li><a href="">新闻动态</a></li>
+    			<li><a href="">联系我们</a></li>
+    		</ul>
+    	</div>
+    </div>
+    <div class="banner_box">
+    	<ul class="banner_ul">
+	      	<li><a><img src="images/banner_1.jpg" width="1200"></a></li>
+	      	<li><a><img src="images/banner_2.jpg" width="1200"></a></li>
+	      	<li><a><img src="images/banner_3.jpg" width="1200"></a></li>
+	    </ul>
+    	<ul class="banner_btn">
+	      	<li class="active"></li>
+	      	<li></li>
+	      	<li></li>
+	    </ul>
+	    <div class="inner">
+	      	<button type="button" class="banner_left"><img src="images/banner_left.png"></button>
+	      	<button type="button" class="banner_right"><img src="images/banner_right.png"></button>
+	    </div>
     </div>
 </body>
+<script type="text/javascript">
+	var index = 0
+    var length = $('.banner_ul li').length
+    var maxIndex = length -1
+    autoRun(4000)
+	function autoRun (time) {
+		var timer = setInterval(auto,time)   
+	    $('.banner_btn li').on('click',function(){
+	      	clearInterval(timer)
+	      	$('.banner_ul li').eq(index).fadeOut(0)
+	      	$('.banner_btn li').eq(index).removeClass('active')
+	      	index = $(this).index()
+	      	$('.banner_ul li').eq(index).fadeIn(1000)
+	      	$('.banner_btn li').eq(index).addClass('active')
+	      	timer = setInterval(auto,time)
+	    })
+	    $('.banner_left').on('click',function(){
+	      	if(index == 0){
+		        clearInterval(timer)
+		        $('.banner_ul li').eq(0).fadeOut(800)
+		        $('.banner_btn li').eq(0).removeClass('active')
+		        index = maxIndex
+		        $('.banner_ul li').eq(index).fadeIn(1000)
+		        $('.banner_btn li').eq(index).addClass('active')
+		        timer = setInterval(auto,time)
+	      	}else{
+		        clearInterval(timer)
+		        $('.banner_ul li').eq(index).fadeOut(800)
+		        $('.banner_btn li').eq(index).removeClass('active')
+		        index = index - 1
+		        $('.banner_ul li').eq(index).fadeIn(1000)
+		        $('.banner_btn li').eq(index).addClass('active')
+		        timer = setInterval(auto,time)
+	      	}
+	    })
+	    $('.banner_right').on('click',function(){
+	      	if(index == maxIndex){
+		        clearInterval(timer)
+		        $('.banner_ul li').eq(maxIndex).fadeOut(800)
+		        $('.banner_btn li').eq(maxIndex).removeClass('active')
+		        index = 0
+		        $('.banner_ul li').eq(index).fadeIn(1000)
+		        $('.banner_btn li').eq(index).addClass('active')
+		        timer = setInterval(auto,time)
+	      	}else{
+		        clearInterval(timer)
+		        $('.banner_ul li').eq(index).fadeOut(800)
+		        $('.banner_btn li').eq(index).removeClass('active')
+		        index = index + 1
+		        $('.banner_ul li').eq(index).fadeIn(1000)
+		        $('.banner_btn li').eq(index).addClass('active')
+		        timer = setInterval(auto,time)
+	      	}
+	    })
+	}
+    function auto() {
+      	index += 1
+      	if(index == length){
+	        $('.banner_ul li').eq(index-1).fadeOut(800)
+	        $('.banner_btn li').eq(index-1).removeClass('active')
+	        index = 0
+	        $('.banner_ul li').eq(index).fadeIn(1000)
+	        $('.banner_btn li').eq(index).addClass('active')
+      	}else{
+	        $('.banner_ul li').eq(index-1).fadeOut(800)
+	        $('.banner_btn li').eq(index-1).removeClass('active')
+	        $('.banner_ul li').eq(index).fadeIn(1000)
+	        $('.banner_btn li').eq(index).addClass('active')
+      	}
+    }
+</script>
 </html>
