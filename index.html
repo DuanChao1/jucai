@@ -103,17 +103,47 @@ body{
 	height: 400px;
 	padding: 0 20px;
 }
-.news_box h4{
+.deal_box{
+	width: 700px;
+	float: left;
+	height: 400px;
+	padding: 0 20px;
+}
+.deal_box>div{
+	position: relative;
+    height: 352px;
+    overflow: hidden;
+}
+.deal_box ul{
+	position: absolute;
+    top: 0px;
+    width: 100%;
+}
+.news_box h4,.deal_box h4,.showBox h4{
+	height: 27px;
     font-size: 24px;
     font-family: 隶书;
     margin: 0;
     padding: 10px 0;
     color: #B11515;
-    border-bottom: 1px dashed #B11515;
+    border-bottom: 1px solid #B11515;
 }
-.news_box ul{
+.news_box ul,.deal_box ul{
 	list-style: initial;
 	padding-left: 20px;
+}
+.news_box li,.deal_box li{
+	padding: 10px 0;
+    border-bottom: 1px dashed #CECECE;
+}
+.news_box li>a,.deal_box li{
+	color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+.news_box li>a:hover{
+	color: #000;
+    text-decoration: underline;
 }
 .ico_yun{
 	display: inline-block;
@@ -121,6 +151,13 @@ body{
 	height: 20px;
 	background: url(images/ico_yun.png);
 	background-size: 100% 100%;
+}
+.showBox{
+	width: 1160px;
+	margin: 0 auto 10px;
+	overflow: hidden;
+	padding: 0 20px;
+	background: #fff;
 }
 </style>
 </head>
@@ -167,9 +204,47 @@ body{
     			<li><a href="">北京钜彩国际拍卖公司诚招各界销售精英！</a></li>
     		</ul>
     	</div>
+    	<div class="deal_box">
+    		<h4>成交记录<span class="ico_yun"></span></h4>
+    		<div>
+    			<ul id="deal">
+	    			<li>朱*艺135**28中华民国签字版壹元银币 成交价160万</li>
+	    			<li>李**13**321 齐白石扇面虾图 成交价268万</li>
+	    			<li>李*强156**212袁耀作品阿房宫图 成交价360万</li>
+	    			<li>贾**   138**588  青花釉里玉壶春瓶  成交价52万</li>
+	    			<li>HUANG 00810**74 大清银币宣统三年  拍卖价120万</li>
+	    			<li>刘*170**888 和田羊脂玉手把件  私下洽购 248万</li>
+	    			<li>路*军138**044释迦摩尼鎏金坐像   拍卖成交176万</li>
+	    			<li>黄* 150**346 清 白玉飾件四件  拍卖成交33万</li>
+	    			<li>李** 137**888 張維屏；彭浚 山水花卉書法扇面十八幀  拍卖成交 12万</li>
+	    			<li>张* 138**026 辽代“景福通宝”   拍卖价10万</li>
+
+	    			<li>朱*艺135**28中华民国签字版壹元银币 成交价160万</li>
+	    			<li>李**13**321 齐白石扇面虾图 成交价268万</li>
+	    			<li>李*强156**212袁耀作品阿房宫图 成交价360万</li>
+	    			<li>贾**   138**588  青花釉里玉壶春瓶  成交价52万</li>
+	    			<li>HUANG 00810**74 大清银币宣统三年  拍卖价120万</li>
+	    			<li>刘*170**888 和田羊脂玉手把件  私下洽购 248万</li>
+	    			<li>路*军138**044释迦摩尼鎏金坐像   拍卖成交176万</li>
+	    			<li>黄* 150**346 清 白玉飾件四件  拍卖成交33万</li>
+	    			<li>李** 137**888 張維屏；彭浚 山水花卉書法扇面十八幀  拍卖成交 12万</li>
+	    			<li>张* 138**026 辽代“景福通宝”   拍卖价10万</li>
+	    		</ul>
+    		</div>
+    	</div>
+    </div>
+    <div class="centent_banner"><img src="images/bg_title_2.jpg" height="80" width="1200"></div>
+    <div class="showBox">
+    	<h4>精品展示<span class="ico_yun"></span></h4>
+    	<div>
+    		<ul>
+    			<li><img src=""></li>
+    		</ul>
+    	</div>
     </div>
 </body>
 <script type="text/javascript">
+	//banner图
 	var index = 0
     var length = $('.banner_ul li').length
     var maxIndex = length -1
@@ -239,5 +314,17 @@ body{
 	        $('.banner_btn li').eq(index).addClass('active')
       	}
     }
+
+    //成交记录滚动
+    var ul = document.getElementById('deal')
+    var li = ul.getElementsByTagName('li')
+    var topNum = 0
+    var dealtimer = setInterval(function(){
+    	topNum = topNum - 1
+    	ul.style.top = topNum + 'px'
+    	if(topNum == -370){
+    		topNum = 0
+    	}
+    },50)
 </script>
 </html>
